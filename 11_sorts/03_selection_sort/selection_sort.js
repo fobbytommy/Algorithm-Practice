@@ -1,19 +1,18 @@
 function selection_sort(arr) {
 
-	var array_length = arr.length;
-
-	for (var i = 0; i < array_length; i++) {
+	for (var i = 0; i < arr.length - 1; i++) {
 		var select = i;
-		for (var j = i + 1; j < array_length; j++) {
+		for (var j = i + 1; j < arr.length; j++) {
 			if (arr[j] < arr[select]) {
 				select = j;
 			}
 		}
-		var temp = arr[i];
-		arr[i] = arr[select];
-		arr[select] = temp;
+		if (select != i) {
+			var temp = arr[i];
+			arr[i] = arr[select];
+			arr[select] = temp;
+		}
 	}
-
 }
 
 var arr = [11, 3, 4, 2, 8, -3, 6, 12, -2, 10, 0, 5];
