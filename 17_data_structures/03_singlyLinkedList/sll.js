@@ -56,6 +56,29 @@ SinglyLinkedList.prototype = {
 			return null;
 		}
 	},
+	insert: function(data, index) {
+		if (index > -1 && index < this._length) {
+			var current = this.head, previous;
+			var node = new Node(data);
+			if (index === 0) {
+				node.next = current;
+				this.head = node;
+			}
+			else {
+				for (var i = 0; i < index; i++) {
+					previous = current;
+					current = current.next;
+				}
+				node.next = current;
+				previous.next = node;
+			}
+			this._length++;
+			return node.value;
+		}
+		else {
+			return null;
+		}
+	},
 	display: function() {
 		var current = this.head;
 		while (current) {
@@ -105,7 +128,8 @@ sll.add(2);
 sll.add(3);
 sll.add(4);
 sll.add(5);
+sll.insert(10, 3);
 // sll.remove(3);
 sll.display();
-var reversedLinkedList = reverseSll(sll);
-reversedLinkedList.display();
+// var reversedLinkedList = reverseSll(sll);
+// reversedLinkedList.display();
