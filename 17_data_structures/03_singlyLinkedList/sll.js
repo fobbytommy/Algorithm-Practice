@@ -57,7 +57,7 @@ SinglyLinkedList.prototype = {
 		}
 	},
 	insert: function(data, index) {
-		if (index > -1 && index < this._length) {
+		if (index > -1 && index <= this._length) {
 			var current = this.head, previous;
 			var node = new Node(data);
 			if (index === 0) {
@@ -128,7 +128,7 @@ sll.add(2);
 sll.add(3);
 sll.add(4);
 sll.add(5);
-sll.insert(10, 3);
+sll.insert(10, 6);
 // sll.remove(3);
 sll.display();
 // var reversedLinkedList = reverseSll(sll);
